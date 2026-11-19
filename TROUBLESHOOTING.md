@@ -41,6 +41,10 @@ While the agent speaks, the backtalk folder should contain fresh `.voice_state` 
 
 The greeting line lives in `backtalk/backtalk.json` under `"greeting"`. If it is missing or empty, the launch is silent by configuration. The voice piece itself failing to start is a different problem; its terminal output says why, and its guide covers the classics.
 
+## Backtalk says it cannot connect to GitHub Copilot
+
+The Copilot voice backend uses the GitHub account already signed in through Copilot CLI; it does not need Claude Code installed. Check that `backtalk/backtalk.json` has `"brain_provider": "copilot"` and `"model": "auto"`, then run `copilot login` if needed. A no-tools prompt via `copilot -p "Reply with exactly READY and do not use tools." --silent` checks CLI access only; the backtalk greeting and warm-up are what test SDK integration. Backtalk's `uv sync` installs the Copilot SDK declared in its `pyproject.toml`; if it is missing, run `uv sync --inexact` inside the `backtalk` folder and retry. Copilot Free has limited usage, so do not promise unlimited turns.
+
 ## start.sh says a piece is starting but nothing appears
 
 - The face opens a browser tab automatically, on whichever face your `ai-visualizer.json` names. If no tab appears, open `http://127.0.0.1:8790/` yourself and click your face from the gallery. That address is the picker, not a face, so going straight there and expecting the animation is the usual confusion.

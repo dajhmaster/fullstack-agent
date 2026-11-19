@@ -2,7 +2,7 @@
 
 > **Never used Claude Code?** Start at [jaredrhod.com](https://jaredrhod.com): pick your situation and it routes you to the right path.
 
-**Runs on:** Claude Code only; the installer itself is a Claude Code wizard. The $20 Pro plan is enough.
+**Installer:** Claude Code runs the setup wizard. **Voice brain:** backtalk can use Claude by default or GitHub Copilot through the Copilot SDK.
 
 Not an agent that writes full-stack code. **An agent that HAS a full stack: memory, voice, and face, plus an optional set of hands.** This repo assembles my whole setup on your machine in one guided conversation, and when it finishes, your screen is a living circuit board with your agent's name on the chip, and it speaks first:
 
@@ -19,7 +19,7 @@ That's not a demo clip. That's minute one.
 Four pieces, each its own open repo, each excellent alone, assembled here into one agent:
 
 - **The mind: [ai-memory-vault](https://github.com/jaredrhod/ai-memory-vault).** A real, persistent memory built on plain text files your AI reads and writes. It remembers you, your work, and every lesson, across every session, with no size ceiling.
-- **The mouth: [backtalk](https://github.com/jaredrhod/backtalk).** Hold a key, talk out loud, and your agent answers through your speakers about a second later, with all its tools and its whole personality.
+- **The mouth: [backtalk](https://github.com/jaredrhod/backtalk).** Hold a key, talk out loud, and your agent answers through your speakers about a second later, with all its tools and its whole personality. Its brain can use Claude or, with a signed-in Copilot CLI account, the GitHub Copilot SDK.
 - **The face: [ai-visualizer](https://github.com/jaredrhod/ai-visualizer).** Full-screen visualizers that idle, listen, think, and speak in sync with the real conversation. Four faces ship, including the living circuit board from my videos.
 - **The hands, the optional extra: [barehands](https://github.com/jaredrhod/barehands).** Move notes and images around your screen with your bare hands through your webcam. No headset, no controllers. Opens in its own window instead of the face. Take it now or add it later by running the same install again.
 
@@ -27,7 +27,7 @@ Every piece is optional. The wizard asks which ones you want and explains each i
 
 ## Install
 
-You need [Claude Code](https://jaredrhod.com/start) with a Claude subscription. Mac and Linux also use git (macOS offers to install it the first time you use it). Windows needs nothing else: the installer sets up git for you during setup. Then one paste into your terminal.
+You need [Claude Code](https://jaredrhod.com/start) to run the installer. Mac and Linux also use git (macOS offers to install it the first time you use it). Windows needs nothing else: the installer sets up git for you during setup. Then one paste into your terminal.
 
 Mac and Linux:
 
@@ -64,7 +64,7 @@ Then you're exactly who this was designed around. If you set up a memory vault, 
 
 - The wizard never deletes, overwrites, or moves anything you built. Replacements retire the old thing in place and say so.
 - Your vault stays wherever it already lives. Pieces connect by configuration paths, not by relocation.
-- Requirements per piece: the voice needs a mic and about 1 GB of local models on first run; the hands need a webcam and Chrome; the mind and face need nothing but Python 3, which ships with macOS and most Linux distributions. **Windows ships none**, and the name `python` there is a Microsoft Store placeholder that passes a check and then exits without running, so the face and the hands each carry a `run.bat` that finds a working interpreter or says plainly that there is not one. Windows notes live in each piece's own README.
+- Requirements per piece: the voice needs a mic, about 1 GB of local models on first run, and an authenticated Claude or Copilot account for its selected brain; the hands need a webcam and Chrome; the mind and face need nothing but Python 3, which ships with macOS and most Linux distributions. **Windows ships none**, and the name `python` there is a Microsoft Store placeholder that passes a check and then exits without running, so the face and the hands each carry a `run.bat` that finds a working interpreter or says plainly that there is not one. Windows notes live in each piece's own README.
 - Cross-piece problems: `TROUBLESHOOTING.md` here. Everything else: each piece's own guide.
 
 ## The rest of it
