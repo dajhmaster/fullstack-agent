@@ -30,6 +30,10 @@ HOME_DIR="$(dirname "$HERE")"
 main() {
   for repo in fullstack-agent ai-memory-vault backtalk barehands ai-visualizer; do
     CFG=""
+    OWNER=jaredrhod
+    case "$repo" in
+      fullstack-agent|backtalk) OWNER=dajhmaster ;;
+    esac
     case "$repo" in
       backtalk) CFG="backtalk.json" ;;
       barehands) CFG="barehands.json" ;;
@@ -40,7 +44,7 @@ main() {
       echo "== $repo (wiring to updates)"
       [ -n "$CFG" ] && [ -f "$HOME_DIR/$repo/$CFG" ] && cp "$HOME_DIR/$repo/$CFG" "$HOME_DIR/$repo/$CFG.mine"
       git -C "$HOME_DIR/$repo" init -q -b main
-      git -C "$HOME_DIR/$repo" remote add origin "https://github.com/jaredrhod/$repo"
+      git -C "$HOME_DIR/$repo" remote add origin "https://github.com/$OWNER/$repo"
       git -C "$HOME_DIR/$repo" fetch -q origin
       git -C "$HOME_DIR/$repo" reset -q --hard origin/main
       git -C "$HOME_DIR/$repo" branch -q --set-upstream-to=origin/main main
